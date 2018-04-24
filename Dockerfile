@@ -17,7 +17,8 @@ RUN apt-get update && \
 # Upgrade PIP in virtual environment to latest version
 RUN virtualenv /appenv && \
     . /appenv/bin/activate && \
-    pip install pip --upgrade
+    pip install pip --upgrade && \
+    pip install urllib3[secure]
 
 # Add entrypoint script
 ADD scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
